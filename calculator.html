@@ -86,9 +86,11 @@ document.addEventListener('click', event => {
       console.log(event.target.value)
       if (isOp){
         secondNum += event.target.value
+        document.getElementById('second-number').textContent = secondNum
       } else {
         firstNum += event.target.value
         isFirstNum = true
+        document.getElementById('first-number').textContent = firstNum
       }
     } else if (event.target.classList.contains('operator') && isFirstNum){
       // space for operator buttons
@@ -101,20 +103,33 @@ document.addEventListener('click', event => {
 
       switch(op){
         case 'plus':
+          result = parseInt(firstNum) + parseInt(secondNum)
           break
         case 'minus':
+          result = parseInt(firstNum) - parseInt(secondNum)
           break
         case 'times':
+          result = parseInt(firstNum) * parseInt(secondNum)
           break
         case 'divide':
+          result = parseInt(firstNum) / parseInt(secondNum)
           break
         case 'power':
+          result = parseInt(firstNum) ** parseInt(secondNum)
           break
       }
+
+      console.log(result)
 
     } else if (event.target.classList.contains('clear')){
       // space for clear button
       console.log(event.target.value)
+      firstNum = ''
+      op = ''
+      secondNum = ''
+      result = null
+      isFirstNum = 0
+      isOp = false
     }
   }
 })
