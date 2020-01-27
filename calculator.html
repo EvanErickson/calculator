@@ -72,7 +72,35 @@
 
 <script>
 
-// Your javascript here...
+let firstNum = '',
+  op = '',
+  secondNum = '',
+  isOp = false
+
+document.addEventListener('click', event => {
+  if (event.target.classList.contains('btn')) {
+    if (event.target.classList.contains('number')) {
+      // space for number buttons
+      console.log(event.target.value)
+      if (isOp){
+        secondNum += event.target.value
+      } else {
+          firstNum += event.target.value
+      }
+    } else if (event.target.classList.contains('operator')){
+      // space for operator buttons
+      console.log(event.target.value)
+      op = event.target.value
+
+    } else if (event.target.classList.contains('equal')) {
+      // space for equals sign
+      console.log(event.target.value)
+    } else {
+      // space for clear button
+      console.log(event.target.value)
+    }
+  }
+})
 
 </script>
 </body>
