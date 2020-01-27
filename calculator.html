@@ -75,7 +75,9 @@
 let firstNum = '',
   op = '',
   secondNum = '',
-  isOp = false
+  isOp = false,
+  isFirstNum = false,
+  result
 
 document.addEventListener('click', event => {
   if (event.target.classList.contains('btn')) {
@@ -85,17 +87,32 @@ document.addEventListener('click', event => {
       if (isOp){
         secondNum += event.target.value
       } else {
-          firstNum += event.target.value
+        firstNum += event.target.value
+        isFirstNum = true
       }
-    } else if (event.target.classList.contains('operator')){
+    } else if (event.target.classList.contains('operator') && isFirstNum){
       // space for operator buttons
       console.log(event.target.value)
-      op = event.target.value
-
+        op = event.target.value
+        isOp = true
     } else if (event.target.classList.contains('equal')) {
       // space for equals sign
       console.log(event.target.value)
-    } else {
+
+      switch(op){
+        case 'plus':
+          break
+        case 'minus':
+          break
+        case 'times':
+          break
+        case 'divide':
+          break
+        case 'power':
+          break
+      }
+
+    } else if (event.target.classList.contains('clear')){
       // space for clear button
       console.log(event.target.value)
     }
